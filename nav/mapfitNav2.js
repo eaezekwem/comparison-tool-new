@@ -19,9 +19,10 @@ document.addEventListener("DOMContentLoaded",function(){
             pointsToDelete = [];
             getStartCoords().then(getCoords);
             
+        }else{
+            getCoords();
         }
         firstTime = false;
-        getCoords()
     })
 
     wlkBtn.addEventListener('click',function(){
@@ -98,7 +99,7 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 
     function setHere(result){
-        return new Promise(function(resolve,reject){
+        
             var locations = result.Response.View[0].Result;
             for (i = 0;  i < locations.length; i++) {
                 position = {
@@ -108,14 +109,32 @@ document.addEventListener("DOMContentLoaded",function(){
     
                 posA = [locations[i].Location.DisplayPosition.Latitude, locations[i].Location.DisplayPosition.Longitude]
                 hereCoords.push(posA);
-                setupPoints({company:"here"},posA.join(","))
+                if(i == 0){
+                    setupPoints({company:"here"},posA.join(","))
+                }
                 
             }    
-            resolve
-        })
-        
-
+            
     }
+
+    function setHere2(result){
+        
+        var locations = result.Response.View[0].Result;
+        for (i = 0;  i < locations.length; i++) {
+            position = {
+              lat: locations[i].Location.DisplayPosition.Latitude,
+              lng: locations[i].Location.DisplayPosition.Longitude
+            };
+
+            posA = [locations[i].Location.DisplayPosition.Latitude, locations[i].Location.DisplayPosition.Longitude]
+            hereCoords.push(posA);
+            if(i == 0){
+                setupPoints({company:"here"},posA.join(","))
+                finalHereCoords()
+            }
+        }    
+        
+}
 
     function setHereFinal(result){
         var locations = result.Response.View[0].Result;
@@ -127,7 +146,10 @@ document.addEventListener("DOMContentLoaded",function(){
 
             posA = [locations[i].Location.DisplayPosition.Latitude, locations[i].Location.DisplayPosition.Longitude]
             hereCoords.push(posA);
-            setupPoints({company:"here"},posA.join(","))
+            if(i == 0){
+                setupPoints({company:"here"},posA.join(","))
+            }
+
         }
 
         //console.log("final Here coordinates", hereCoords)
@@ -157,17 +179,18 @@ document.addEventListener("DOMContentLoaded",function(){
         
         //console.log("bing here" , result);
     }
-    var watcher = function(){
-    //     return new Promise(function(resolve,reject){
-    //         resolve
-    //     })
-    }
+
+    
+    
     var getStartCoords = function(){
     
-        var inputVal = document.getElementsByTagName("input")[0].value;
-        
+        var inputVal = document.getElementsByTagName("input")[0].value; 
         var geocodingParams = {searchText: inputVal};
-        
+        if(firstTime){
+            hereGeocoder.geocode(geocodingParams, setHere, function(e){})
+        }else{
+            hereGeocoder.geocode(geocodingParams, setHere2, function(e){})
+        }
 
        
           
@@ -180,10 +203,8 @@ document.addEventListener("DOMContentLoaded",function(){
                 }else{
                     alert('Invalid Address Parameters')
                 }
-
             })
-            
-            Promise.all([getStartMapCoords(),postJSON([{address:inputVal}]),hereGeocoder.geocode(geocodingParams, setHere, function(e){})]).then(function(){console.log("its resolved");resolve});
+            getStartMapCoords().then(postJSON([{address:inputVal}])).then(function(){console.log("its resolved");resolve()})
         })  
         
     } 
@@ -202,7 +223,7 @@ document.addEventListener("DOMContentLoaded",function(){
                     mapboxCoordinates.push(tmCords);
                     console.log("first coordinates", tmCords);
                     setupPoints({company:"mapbox"}, tmCords.join(","));
-                    resolve;
+                    resolve();
                 })
             })
         
@@ -210,14 +231,22 @@ document.addEventListener("DOMContentLoaded",function(){
     
    
         
-    
+    var finalHereCoords = function(){
+        var inputVal = document.getElementsByTagName("input")[1].value;
+        var geocodingParams = {searchText: inputVal}
+        hereGeocoder.geocode(geocodingParams, setHereFinal, function(e){})
+    }
     
     var getCoords =  function(){
 
         var inputVal = document.getElementsByTagName("input")[1].value;
         postJSON([{address: document.getElementsByTagName("input")[1].value}],true);
         var geocodingParams = {searchText: inputVal}
-        hereGeocoder.geocode(geocodingParams, setHereFinal, function(e){})
+        
+        if (firstTime){
+            hereGeocoder.geocode(geocodingParams, setHereFinal, function(e){})
+        }
+        
        
         
         googleGeoCoder.geocode({'address': inputVal}, function(results,status){
@@ -314,13 +343,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     var setupPoints = function(options,str,routing = false){
 
-        // if(routing){
-        //     mapfitCoords =  mapfitCoords= document.getElementsByTagName("input")[1].value
-        // }else{
-        //     mapfitCoords =  mapfitCoords= document.getElementsByTagName("input")[0].value
-        // }
-        // googleCords;
-        // mapBoxCords;
+        
 
         var myPoint = [];
 
@@ -389,46 +412,9 @@ document.addEventListener("DOMContentLoaded",function(){
         }
     
                     
-                        // var myPoints = [
-                        //     {
-                        //     "id": "mapfit",
-                        //     "location" : `${mapfitCoords}`,
-                        //         "cardData": {
-                        //         "title": "Mapfit",
-                        //         "subTitle1": "119 W 24th St",
-                        //         "subTitle2": "Mappers"
-                        //         },
-                        //         "markerUrl": "arts"
-                        //     } ,
-                        //     {
-                        //         "id": "google",
-                        //         "location" : `${googleCords}`,
-                        //         "cardData": {
-                        //             "title": "Google",
-                        //             "subTitle1": "119 W 24th St",
-                        //             "subTitle2": "Googl"
-                        //         },
-                        //         "markerUrl": "education"
-                        //     } ,
-                        //     {
-                        //         "id": "mapbox",
-                        //         "location" : `${mapBoxCords}`,
-                        //         "cardData": {
-                        //             "title": "MapBox",
-                        //             "subTitle1": "119 W 24th St",
-                        //             "subTitle2": "MapBox"
-                        //         },
-                        //         "markerUrl": "finance"
-                        //     } 
-                        // ]
-
-                        
-                            
-                        
-                        // console.log(myPoints);
-                        // L.mapfit.addMarkers(myPoints, 'mapfit','day');
+                   
                     
-                    }
+        }
 
 
 
@@ -523,7 +509,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
         } else {
             driving = L.polyline(locationArray, {
-                color: '#009eff',
+                color: '#cc6633',
                 weight: 5,
                 className: "fake"
             });
