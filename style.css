@@ -1,0 +1,57 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+#mapfit{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+#google{
+    width: 100%;
+    height: 100%;
+}
+
+#mapbox{
+    width: 100%;
+    height: 100%;
+}
+
+.marker {
+    background-image: url('mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+.no-padding > [class*="col-"]{
+    padding: 0;
+}
+
+.no-padding{
+    height: 100%;
+}
+
+.address{
+    position: absolute;
+    z-index: 5;
+    top: 5px;
+    margin: 0 auto;
+}
+
+.address > input{
+    margin: 0 20px;
+
+}
+
+.nav-form{
+    padding: 10% 10%;
+}
+
+.active{
+    background-color: lightblue;
+}

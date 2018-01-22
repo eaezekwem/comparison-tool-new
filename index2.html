@@ -1,0 +1,43 @@
+<html>
+    <head>
+            <meta charset='utf-8' />
+            <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+            <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+            integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+            crossorigin=""/>
+            <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+            integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+            crossorigin=""></script>
+            <!-- <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' /> -->
+            <link href="https://cdn.mapfit.com/v1/assets/css/mapfit.css" rel="stylesheet" />
+            <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+            <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+            <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
+            <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+            <link rel="stylesheet" href="./style.css" />
+
+    </head>
+    <body>
+        <div class="address">
+            <input type="text" value="9 W 57th street, New York, NY" >
+            <button id="submit">Submit</button>
+        </div>
+        <div class="row no-padding">
+            <div id="mapfit" class="col-sm-4 col-lg-4 col-md-4"></div>
+            <div id="google" class="col-sm-4 col-lg-4 col-md-4"></div>
+            <div id="mapbox" class="col-sm-4 col-lg-4 col-md-4"></div>
+        <div>
+        <script src="//cdn.stg.mapfit.com/v1/assets/js/tangram.min.js"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
+        <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+        <!-- <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script> -->
+        <script src="//cdn.stg.mapfit.com/v1/assets/js/mapfit.js"></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb9PEt7AZSV2-Ggs2fHCB_OdflGaARYrI"></script>
+        <script src='./maps/google.js'></script>
+        <script src='./maps/mapbox.js'></script>
+        <!-- <script src='./maps/mapfit.js'></script> -->
+    </body>
+</html>

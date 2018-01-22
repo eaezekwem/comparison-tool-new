@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.43.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+    crossorigin=""></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <link href="https://cdn.mapfit.com/v1/assets/css/mapfit.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="row no-padding">
+        <div class="col-sm-3 col-lg-3 col-md-3">
+            <div class="nav-form">
+              <input type="text" value="660 Madison ave, New York, NY"><br><br>
+              <input type="text" value="9 W 57th Street New York NY"> <br>
+              <button id="goBtn">GO!</button> <br><br>
+              <button id="walking-btn" class="active">walking</button>
+              <button id="driving-btn">driving</button>
+            </div>
+        </div>
+        <div id="mapfit" class="col-sm-9 col-lg-9 col-md-9" ></div>
+    </div>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//cdn.stg.mapfit.com/v1/assets/js/tangram.min.js"></script>
+    <script src="//cdn.stg.mapfit.com/v1/assets/js/mapfit.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb9PEt7AZSV2-Ggs2fHCB_OdflGaARYrI"></script>
+    <script src="./nav/googleNav.js"></script>
+    <script src="./nav/mapboxNav.js"></script>
+    <script src="./nav/mapfitNav2.js"></script>
+  </body>
+</html>
