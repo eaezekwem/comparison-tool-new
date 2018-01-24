@@ -1,0 +1,172 @@
+.route-nav{
+    position: absolute;
+    z-index: 5;
+    background-color: white;
+    width: 20%;
+    height: 50%;
+    margin-left: 2.5%;
+    margin-top: 1%;
+    box-shadow: 0 3px 10px 0 rgba(19, 40, 54, 0.2), inset 0 -3px 0 0 rgba(63, 82, 109, 0.15);
+    border-radius: 6px;
+    display: none;
+}
+
+.route-nav > div:first-of-type{
+    background-color: #fafafb;
+    text-align: left;
+    padding: 5% 0;
+    border-radius: inherit;
+}
+
+.back-btn:hover{
+    cursor: pointer;
+}
+
+.mapfit-route{
+   padding: 5% 4%;
+   border: solid 1px #4353ff;
+   background-color: white;
+}
+
+.mapfit-route > .trip-info >h3{
+    font-size: 16px;
+    display: block;
+    color: #4353ff;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.mapfit-route > .trip-info > span{
+    color: #3a3e43;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.mapfit-route > input{
+    display: block;
+    float: right;
+    margin: 5% 3%;
+    
+}
+
+.google-route{
+    padding: 5% 4%;
+    border: solid 1px #e24f48;
+    background-color: white;
+}
+.google-route > .trip-info > h3{
+    font-size: 16px;
+    display: block;
+    color: #e24f48;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.google-route > .trip-info > span{
+    color: #3a3e43;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.google-route > input{
+    display: block;
+    float: right;
+    margin: 5% 3%;
+}
+
+.here-route{
+    padding: 5% 4%;
+    border: solid 1px #f366ae;
+    background-color: white;
+}
+.here-route > .trip-info > h3{
+    font-size: 16px;
+    display: block;
+    color: #f366ae;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.here-route > input{
+    display: block;
+    float: right;
+    margin: 5% 3%;
+}
+
+.here-route > .trip-info > span{
+    color: #3a3e43;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.mapbox-route{
+    padding: 5% 4%;
+    border: solid 1px #f29920;
+    background-color: white;
+}
+
+.mapbox-route > .trip-info > h3{
+    font-size: 16px;
+    display: block;
+    color: #f29920;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.mapbox-route > .trip-info > span{
+    color: #3a3e43;
+    font-size: 12px;
+    font-weight: normal;
+
+}
+.mapbox-route > input{
+    display: block;
+    float: right;
+    margin: 5% 3%;
+}
+
+.route-nav > div > h2{
+    display: inline-block;
+    margin: 0 5%;
+    margin-right: 0.50%;
+    font-size: 20px;
+}
+
+
+
+.routes{
+    margin: 0 4%;
+    margin-top: 5%;
+    border-bottom: solid 1px #f3f3f3;
+}
+
+.routes > div{
+    border-radius: 4px;
+    margin: 6% 0;
+}
+
+.route-nav > input{
+    display: block;
+    float: right;
+}
+
+#mfcb{
+ background-color: grey;
+}
+
+.trip-info{
+    display: inline-block;
+}
+
+.route-inactive{
+    background-color: #fafafb;
+    border: none;
+}
+
+@media (max-width: 1920px){
+    .route-nav{
+        width: 25rem;
+        height: 35.5rem;
+    }
+}
+

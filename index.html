@@ -18,27 +18,51 @@
     <link href="https://cdn.mapfit.com/v1/assets/css/mapfit.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./routes.css">
   </head>
   <body>
     <div class="row no-padding">
-        <div class="col-sm-3 col-lg-3 col-md-3">
             <div class="nav-form">
-              <input type="text" value="660 Madison ave, New York, NY"><br><br>
-              <input type="text" value="9 W 57th Street New York NY"> <br>
-              <button id="goBtn">GO!</button> <br><br>
-              <button id="walking-btn" class="active">walking</button>
-              <button id="driving-btn">driving</button>
+              <div>
+                 <h1>Navigation Comparison Demo</h1>
+              </div>
+              <button id="rando">Prefill a random route</button><br><br>
+              <div class="nav-start-container">
+                <div class="nav-start">
+                  <h1 class="divider">OR</h1>
+                  <p>Enter your own</p>
+                  <p>START</p>
+                    <input type="text" placeholder="Enter an address" value="119 W 24th Street, New York, NY"><br><br>
+                </div>
+              </div>
+                <p>END</p>
+                <input type="text" placeholder="Enter an address"value="9 W 57th Street New York NY"> <br>
+              <div class="walk-or-drive">
+                <div id="walking-btn" class="active">Walking</div>
+                <div id="driving-btn">Driving</div>
+              </div>
+                <button id="goBtn">Let's go!</button> 
             </div>
-        </div>
-        <div id="mapfit" class="col-sm-9 col-lg-9 col-md-9" ></div>
+            <div class = "route-nav">
+              <div>
+                <h2 class="back-btn"><</h2>
+                <h2>Compare Routes</h2>
+              </div>
+              <div class="routes">
+                <div class="mapfit-route route-inactive"><div class="trip-info"><h3>Mapfit</h3><span id="mapfit-route-info"> 10 Mins 5 mins Driving</span></div><input id="mfcb" type="checkbox"></div>
+                <div class="google-route route-inactive"><div class="trip-info"><h3>Google Maps</h3><span id="google-route-info"> 10 Mins 5 mins Driving</span></div><input id="gcb" type="checkbox"></div>
+                <div class="here-route route-inactive"><div class="trip-info"><h3>Nokia HERE</h3><span id="here-route-info"> 10 Mins 5 mins Driving</span></div><input id ="hcb" type="checkbox" ></div>
+                <div class="mapbox-route route-inactive"><div class="trip-info"><h3>Open Streets Maps</h3><span id="mapbox-route-info"> 10 Mins 5 mins Driving</span></div><input id="mpcb"type="checkbox" ></div>
+              </div>
+              <p><a>Why are results different?</a></p>
+            </div>
+        <div id="mapfit" class="col-sm-12 col-lg-12 col-md-12" ></div>
     </div>
     <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
     <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
     <script src="//cdn.stg.mapfit.com/v1/assets/js/tangram.min.js"></script>
     <script src="//cdn.stg.mapfit.com/v1/assets/js/mapfit.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCb9PEt7AZSV2-Ggs2fHCB_OdflGaARYrI"></script>
-    <script src="./nav/googleNav.js"></script>
-    <script src="./nav/mapboxNav.js"></script>
-    <script src="./nav/mapfitNav2.js"></script>
+    <script src="./nav/mapfitNav.js"></script>
   </body>
 </html>
