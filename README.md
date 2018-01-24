@@ -1,6 +1,6 @@
 # Comparison tool
 
-##instructions
+## instructions
 
 npm install 
 npm start
